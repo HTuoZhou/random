@@ -43,6 +43,7 @@
         <hutool.all.version>5.4.0</hutool.all.version>
 
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
+        <screw.core.version>1.0.5</screw.core.version>
     </properties>
 
     <dependencyManagement>
@@ -79,6 +80,11 @@
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-generator</artifactId>
                 <version>${mybatis-plus.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>cn.smallbun.screw</groupId>
+                <artifactId>screw-core</artifactId>
+                <version>${screw.core.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
