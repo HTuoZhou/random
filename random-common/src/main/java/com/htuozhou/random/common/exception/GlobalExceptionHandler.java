@@ -38,7 +38,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BusinessException.class)
     public ApiFinalResult<Object> businessExceptionHandler(BusinessException e, HttpServletRequest request) {
         log.info("请求URL: {}", request.getRequestURL().toString(), e);
-        return ApiFinalResult.error(e.getCode(), e.getMessage(), e.getData());
+        return ApiFinalResult.error(e.getCode(), e.getMsg(), e.getData());
     }
 
     /**

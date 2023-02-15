@@ -19,7 +19,17 @@ public enum ResultCodeEnum {
     /**
      * 参数校验异常
      */
-    PARAMETER(2000002, "参数校验异常");
+    PARAMETER(2000002, "参数校验异常"),
+
+    /**
+     * 导入模板不正确
+     */
+    IMPORT_TEMPLATE_ERROR(200003,"导入模板不正确"),
+
+    /**
+     * 导入数据不正确
+     */
+    IMPORT_DATA_ERROR(200004,"导入数据不正确");
 
     /**
      * 状态码

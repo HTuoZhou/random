@@ -11,7 +11,9 @@ import com.htuozhou.random.common.result.ApiFinalResult;
 import com.htuozhou.random.webapi.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -97,6 +99,31 @@ public class WebApiUserController {
     public ApiFinalResult<PageResp<UserVO>> page(@RequestBody PageReq<UserVO> pageReq){
         IPage<UserBO> pageResp = webApiUserService.page(pageReq.pageVo2Bo(UserVO::vo2bo));
         return ApiFinalResult.success(PageResp.pageBo2Vo(pageResp,UserVO::bo2vo));
+    }
+
+    /**
+     * 下载用户信息导入模板
+     * @param response
+     */
+    @GetMapping("/download")
+    public void download(HttpServletResponse response) {
+        webApiUserService.download(response);
+    }
+
+    /****
+     * 导入用户信息
+     */
+    @PostMapping("/importExcel")
+    public ApiFinalResult<String> importExcel(MultipartFile file) {
+        return ApiFinalResult.success(webApiUserService.importExcel(file));
+    }
+
+    /***
+     * 导出用户信息
+     */
+    @GetMapping("/exportExcel")
+    public void exportExcel(HttpServletResponse response) {
+        webApiUserService.exportExcel(response);
     }
 
 }

@@ -7,7 +7,7 @@ spring:
   application:
     name: random
   flyway:
-    enabled: true
+    enabled: false
   # mysql数据库配置
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -18,7 +18,7 @@ spring:
   cache:
     type: redis
   redis:
-    host: 192.168.176.169
+    host: localhost
     port: 6379
     password: 123456
     database: 0

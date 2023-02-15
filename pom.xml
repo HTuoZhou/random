@@ -44,6 +44,8 @@
 
         <mybatis-plus.version>3.5.1</mybatis-plus.version>
         <screw.core.version>1.0.5</screw.core.version>
+
+        <easyexcell.version>2.2.10</easyexcell.version>
     </properties>
 
     <dependencyManagement>
@@ -85,6 +87,12 @@
                 <groupId>cn.smallbun.screw</groupId>
                 <artifactId>screw-core</artifactId>
                 <version>${screw.core.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>easyexcel</artifactId>
+                <version>${easyexcell.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

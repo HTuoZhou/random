@@ -3,7 +3,9 @@ package com.htuozhou.random.business.service;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.htuozhou.random.business.bo.UserBO;
 import com.htuozhou.random.common.page.PageReq;
+import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -54,4 +56,22 @@ public interface IWebApiUserService {
      */
     IPage<UserBO> page(PageReq<UserBO> pageReq);
 
+    /**
+     * 下载用户信息导入模板
+     * @param response
+     */
+    void download(HttpServletResponse response);
+
+    /**
+     * 导入用户信息
+     * @param file
+     * @return
+     */
+    String importExcel(MultipartFile file);
+
+    /**
+     * 导出用户信息
+     * @param response
+     */
+    void exportExcel(HttpServletResponse response);
 }
