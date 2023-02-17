@@ -1,4 +1,4 @@
-package com.htuozhou.random.business.easyexcel.dict;
+package com.htuozhou.random.business.easyexcel;
 
 import com.htuozhou.random.common.dict.BaseDict;
 

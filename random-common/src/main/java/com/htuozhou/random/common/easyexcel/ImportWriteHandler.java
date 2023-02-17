@@ -14,7 +14,7 @@ import java.util.Map;
  * @author hanzai
  * @date 2023/2/3
  */
-public class EasyExcelSpinnerWriteHandler implements SheetWriteHandler {
+public class ImportWriteHandler implements SheetWriteHandler {
 
     // 下拉框赋值
     Map<Integer, String[]> mapDropDown;
@@ -25,7 +25,7 @@ public class EasyExcelSpinnerWriteHandler implements SheetWriteHandler {
     // 说明
     private String description;
 
-    public EasyExcelSpinnerWriteHandler(String description,Map<Integer, String[]> mapDropDown, int rangeRow) {
+    public ImportWriteHandler(String description, Map<Integer, String[]> mapDropDown, int rangeRow) {
         this.mapDropDown = mapDropDown;
         this.rangeRow = rangeRow;
         this.description = description;

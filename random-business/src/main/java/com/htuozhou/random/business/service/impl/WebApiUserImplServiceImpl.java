@@ -9,16 +9,16 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.htuozhou.random.business.bo.UserBO;
 import com.htuozhou.random.business.bo.easyexcel.UserImportBO;
-import com.htuozhou.random.business.easyexcel.dict.ImportHeadDict;
-import com.htuozhou.random.business.easyexcel.dict.TemplateDict;
-import com.htuozhou.random.business.easyexcel.dict.UserHeadDict;
-import com.htuozhou.random.business.easyexcel.dict.UserSexDict;
-import com.htuozhou.random.business.easyexcel.listener.ImportListener;
-import com.htuozhou.random.business.easyexcel.service.ImportDataAssistService;
+import com.htuozhou.random.business.easyexcel.ImportHeadDict;
+import com.htuozhou.random.business.easyexcel.TemplateDict;
+import com.htuozhou.random.business.easyexcel.UserHeadDict;
+import com.htuozhou.random.business.easyexcel.UserSexDict;
 import com.htuozhou.random.business.service.IWebApiUserService;
 import com.htuozhou.random.business.service.cache.IUserCacheService;
 import com.htuozhou.random.common.constant.EasyExcelConstant;
-import com.htuozhou.random.common.easyexcel.EasyExcelSpinnerWriteHandler;
+import com.htuozhou.random.common.easyexcel.ImportDataAssistService;
+import com.htuozhou.random.common.easyexcel.ImportListener;
+import com.htuozhou.random.common.easyexcel.ImportWriteHandler;
 import com.htuozhou.random.common.exception.BusinessException;
 import com.htuozhou.random.common.page.PageReq;
 import com.htuozhou.random.common.result.ResultCodeEnum;
@@ -185,7 +185,7 @@ public class WebApiUserImplServiceImpl implements IWebApiUserService, ImportData
 
         EasyExcel.write(os, UserImportBO.class)
                 .head(head())
-                .registerWriteHandler(new EasyExcelSpinnerWriteHandler(CommonUtil.getI18nMsg(TemplateDict.TEMPLATE_DECRIPTION, i18nService),mapDropDown, head().size() - 1))
+                .registerWriteHandler(new ImportWriteHandler(CommonUtil.getI18nMsg(TemplateDict.TEMPLATE_DECRIPTION, i18nService),mapDropDown, head().size() - 1))
                 .sheet(CommonUtil.getI18nMsg(TemplateDict.USER_DETAIL, i18nService))
                 .relativeHeadRowIndex(1)
                 .doWrite(Collections.emptyList());

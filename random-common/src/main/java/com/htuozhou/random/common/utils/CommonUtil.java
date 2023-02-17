@@ -12,6 +12,11 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class CommonUtil {
 
+    /**
+     * 设置excel响应
+     * @param response
+     * @param fileName
+     */
     public static void setResponse(HttpServletResponse response, String fileName) {
         response.setContentType(EasyExcelConstant.EXCEL_CONTENT_TYPE);
         // 下载EXCEL

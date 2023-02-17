@@ -4,7 +4,7 @@ import com.alibaba.excel.annotation.ExcelProperty;
 import com.alibaba.excel.annotation.write.style.ColumnWidth;
 import com.alibaba.excel.annotation.write.style.ContentStyle;
 import com.alibaba.excel.annotation.write.style.HeadStyle;
-import com.htuozhou.random.business.easyexcel.dict.UserSexDict;
+import com.htuozhou.random.business.easyexcel.UserSexDict;
 import com.htuozhou.random.common.service.I18nService;
 import com.htuozhou.random.common.utils.CommonUtil;
 import com.htuozhou.random.persistence.po.UserPO;

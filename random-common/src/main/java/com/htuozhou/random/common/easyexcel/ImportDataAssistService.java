@@ -1,4 +1,4 @@
-package com.htuozhou.random.business.easyexcel.service;
+package com.htuozhou.random.common.easyexcel;
 
 import com.htuozhou.random.common.dict.BaseDict;
 import com.htuozhou.random.common.service.I18nService;

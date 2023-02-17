@@ -27,7 +27,6 @@ public class EasyExcelConstant {
      */
     public static final String EXCEL_DOWNLOAD_FORMAT = ".xlsx";
 
-
     /**
      * 文件名称分隔符
      */
