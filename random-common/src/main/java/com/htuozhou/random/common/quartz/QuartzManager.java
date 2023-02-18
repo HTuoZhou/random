@@ -1,8 +1,9 @@
 package com.htuozhou.random.common.quartz;
 
+import com.htuozhou.random.common.exception.BusinessException;
+import com.htuozhou.random.common.result.ResultCodeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.quartz.*;
-import org.quartz.impl.StdSchedulerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -19,8 +20,8 @@ public class QuartzManager {
 
     public  void addJob(SimpleJobModel<?> jobModel) {
         if (existJob(jobModel.getJobName(), jobModel.getJobGroup())) {
-            log.info("当前定时任务已存在，jobName：{}，jobGroup：{}",String.format(QuartzConstant.JOB_NAME_FMT, jobModel.getJobName()),String.format(QuartzConstant.GROUP_NAME_FMT, jobModel.getJobGroup()));
-            return;
+            log.error("当前定时任务已存在，jobName：{}，jobGroup：{}",String.format(QuartzConstant.JOB_NAME_FMT, jobModel.getJobName()),String.format(QuartzConstant.GROUP_NAME_FMT, jobModel.getJobGroup()));
+            throw new BusinessException(ResultCodeEnum.QUARTZ_JOB_EXIST);
         }
 
         JobDetail jobDetail = JobBuilder.newJob(jobModel.getJobCls())
@@ -61,7 +62,7 @@ public class QuartzManager {
     }
 
 
-    public void stopJob(String jobName, String groupName) {
+    public void deleteJob(String jobName, String groupName) {
         JobKey jobKey = new JobKey(String.format(QuartzConstant.JOB_NAME_FMT, jobName), String.format(QuartzConstant.GROUP_NAME_FMT, groupName));
         TriggerKey triggerKey = new TriggerKey(String.format(QuartzConstant.TRIGGER_NAME_FMT, jobName), String.format(QuartzConstant.GROUP_NAME_FMT, groupName));
         try {

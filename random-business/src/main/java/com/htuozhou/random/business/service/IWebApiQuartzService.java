@@ -7,8 +7,14 @@ package com.htuozhou.random.business.service;
 public interface IWebApiQuartzService {
 
     /**
-     * 开启test2Job定时任务
+     * 添加test2Job定时任务
      * @return
      */
-    String test2Job();
+    String addTest2Job();
+
+    /**
+     * 删除test2Job定时任务
+     * @return
+     */
+    String deleteTest2Job();
 }

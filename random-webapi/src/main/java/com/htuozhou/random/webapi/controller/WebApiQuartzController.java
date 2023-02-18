@@ -20,13 +20,23 @@ public class WebApiQuartzController {
     private IWebApiQuartzService webApiQuartzService;
 
     /**
-     * 开启test2Job定时任务
+     * 添加test2Job定时任务
      * @return
      */
-    @GetMapping("/test2Job")
+    @GetMapping("/addTest2Job")
     @WebLog
     public ApiFinalResult<String> test2Job(){
-        return ApiFinalResult.success(webApiQuartzService.test2Job());
+        return ApiFinalResult.success(webApiQuartzService.addTest2Job());
+    }
+
+    /**
+     * 删除test2Job定时任务
+     * @return
+     */
+    @GetMapping("/deleteTest2Job")
+    @WebLog
+    public ApiFinalResult<String> deleteTest2Job(){
+        return ApiFinalResult.success(webApiQuartzService.deleteTest2Job());
     }
 
 }

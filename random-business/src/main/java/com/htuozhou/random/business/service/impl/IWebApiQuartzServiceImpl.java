@@ -22,11 +22,11 @@ public class IWebApiQuartzServiceImpl implements IWebApiQuartzService {
     private QuartzManager quartzManager;
 
     /**
-     * 开启test2Job定时任务
+     * 添加test2Job定时任务
      * @return
      */
     @Override
-    public String test2Job() {
+    public String addTest2Job() {
         SimpleJobModel<Test2Job> simpleJobModel = new SimpleJobModel<>();
         simpleJobModel.setJobCls(Test2Job.class);
         simpleJobModel.setJobGroup(QuartzJobConstant.TEST2_GROUP);
@@ -35,6 +35,16 @@ public class IWebApiQuartzServiceImpl implements IWebApiQuartzService {
         simpleJobModel.setFrequency(QuartzJobConstant.TEST2_INTERVAL);
 
         quartzManager.addJob(simpleJobModel);
-        return "开启test2Job定时任务成功";
+        return "添加test2Job定时任务成功";
+    }
+
+    /**
+     * 删除test2Job定时任务
+     * @return
+     */
+    @Override
+    public String deleteTest2Job() {
+        quartzManager.deleteJob(QuartzJobConstant.TEST2_JOB,QuartzJobConstant.TEST2_GROUP);
+        return "删除test2Job定时任务";
     }
 }

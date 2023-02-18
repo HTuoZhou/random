@@ -29,7 +29,9 @@ public enum ResultCodeEnum {
     /**
      * 导入数据不正确
      */
-    IMPORT_DATA_ERROR(200004,"导入数据不正确");
+    IMPORT_DATA_ERROR(200004,"导入数据不正确"),
+
+    QUARTZ_JOB_EXIST(200005,"当前定时任务已存在");
 
     /**
      * 状态码
